@@ -1,28 +1,35 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { AgGridNg2 } from 'ag-grid-angular';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
-import { AuthenticationService } from './_services';
-import { User } from './_models';
+import { Platform } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+  selector: 'app-root',
+  templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  currentUser: User;
-
   constructor(
-      private router: Router,
-      private authenticationService: AuthenticationService
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar,
+    public translate: TranslateService
   ) {
-      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    this.initializeApp();
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang('en');
+     // the lang to use, if the lang isn't available, it will use the current loader to get them
+    translate.use('en');
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
   }
 
-  logout() {
-      this.authenticationService.logout();
-      this.router.navigate(['/login']);
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
   }
 }

@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{"teacher" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- <ion-toolbar color="primary">
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="contact"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Secondary Toolbar</ion-title>
+  </ion-toolbar> -->
+
+
+  <ion-searchbar (ionCancel)="search($event)" debounce="500" placeholder="" showCancelButton=true cancelButtonText="{{'search'|translate}}"></ion-searchbar>
+
+  <ion-grid *ngFor="let grid of grids">
+    <ion-row class="menuClass1"  *ngFor="let row of grid.menu">
+      <ion-col text-center *ngFor="let menuItem of row" size-xl="1" size-lg="1" size-md="1" size-sm="2"
+               size="2">
+        <ion-avatar class="adjustRowWidth">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+
+        <div class="menuText">
+          {{translateMenu(menuItem.name)}}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid no-padding no-margin>
+    <ion-row no-padding no-margin>
+      <ion-col style="padding:0 1px;" no-margin *ngFor="let teacher of teachers" size-xl="2" size-lg="2" size-md="5" size-sm="5"
+               size="10">
+        <div style="position: relative;">
+          <a (tap)="openTeacherDetailsPage(teacher)">
+            <img class="bigImage" [src]="teacher.imageURL">
+          </a>
+          <div class="fab-bot-right">
+            <span class="fab-bot-text">{{teacher.organization}}</span>
+          </div>
+        </div>
+
+        <ion-item>
+          <h2 text-wrap class="certificate2Lines">{{teacher.nickname}}　
+            <span>{{teacher.likedCount||0}}</span>
+            <ion-icon name='heart' style="color:pink"></ion-icon>
+            {{teacher.certificateArray}}
+          </h2>
+        </ion-item>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- <ion-slides class="ion-slides-class" pager=false>
+    <ion-slide no-padding no-margin *ngFor="let grid of grids">
+      <ion-grid>
+        <ion-row class="menuClass1" *ngFor="let row of grid.menu">
+          <ion-col text-center *ngFor="let menuItem of row" col-xl-1 col-lg-1 col-md-1 col-sm-2 col-2>
+            <div style="margin-left: 1rem;">
+              <ion-avatar>
+                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+              </ion-avatar>
+            </div>
+
+            <div class="menuText">
+              {{translateMenu(menuItem.name)}}
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+  </ion-slides> -->
+
+</ion-content>

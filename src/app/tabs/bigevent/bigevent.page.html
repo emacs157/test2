@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>bigevent</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionCancel)="search($event)" debounce="500" placeholder="" showCancelButton=true cancelButtonText="{{'search'|translate}}"></ion-searchbar>
+
+  <ion-grid *ngFor="let grid of grids">
+    <ion-row class="menuClass1"  *ngFor="let row of grid.menu">
+      <ion-col text-center *ngFor="let menuItem of row" size-xl="1" size-lg="1" size-md="1" size-sm="2"
+               size="2">
+        <ion-avatar class="adjustRowWidth">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+
+        <div class="menuText">
+          {{translateMenu(menuItem.name)}}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid no-padding no-margin>
+    <ion-row no-padding no-margin>
+      <ion-col style="padding:0 1px;" no-margin *ngFor="let bigevent of bigevents; let i=index" col-xl-2 col-lg-2
+               col-md-5 col-sm-5 col-10>
+        <div style="position: relative;">
+          <a (tap)="openBigEventDetailsPage(bigevent)">
+            <img class="bigImage" [src]="bigevent.imageURL">
+          </a>
+          <div class="fab-bot-right">
+            <span class="fab-bot-text">{{bigevent.organization}}</span>
+          </div>
+        </div>
+
+        <ion-item>
+          <h2 text-wrap class="certificate2Lines">{{bigevent.nickname}}　
+            <span>{{bigevent.likedCount||0}}</span>
+            <ion-icon name='heart' style="color:pink"></ion-icon>
+            <span>{{bigevent.price/100}}{{ 'point' | translate }}</span>
+            {{bigevent.introduction}}
+          </h2>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

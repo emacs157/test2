@@ -1,46 +1,52 @@
-import { NgModule }      from '@angular/core';
+// import { SharedModule } from './shared/shared.module';
+import { NgModule } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule }    from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouteReuseStrategy } from '@angular/router';
 
-// used to create fake backend
-import { fakeBackendProvider } from './_helpers';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { AppComponent }  from './app.component';
-import { routing }        from './app.routing';
-import { AgGridModule } from 'ag-grid-angular';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
-import { AlertComponent } from './_components';
-import { JwtInterceptor, ErrorInterceptor } from './_helpers';
-import { HomeComponent } from './home';
-import { LoginComponent } from './login';
-import { RegisterComponent } from './register';
-import { TeachersComponent } from './teachers';
+
+
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+// AoT requires an exported function for factories
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        routing,
-        AgGridModule.withComponents([])
-    ],
-    declarations: [
-        AppComponent,
-        AlertComponent,
-        HomeComponent,
-        LoginComponent,
-        RegisterComponent,
-        TeachersComponent
-    ],
-    providers: [
-        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [
+    BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: (createTranslateLoader),
+            deps: [HttpClient]
+        }
+    })
+  ],
+  exports: [
 
-        // provider used to create fake backend
-        fakeBackendProvider
-    ],
-    bootstrap: [AppComponent]
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
+  bootstrap: [AppComponent]
+
 })
-
-export class AppModule { }
+export class AppModule {}

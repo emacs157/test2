@@ -1,0 +1,221 @@
+  // .teacher {
+  //   z-index: 1;
+    .menuClass1 {
+      margin-bottom: 3vw;
+    }
+    .ion-row {
+      text-align: center;
+    }
+    .menuText {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+    text-avatar, text-avatar::after {
+      width: 4.7rem;
+      height: 4.7rem;
+      border-radius: 22rem;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 3rem;
+      margin: auto;
+
+    }
+
+    .swiper-pagination {
+      bottom: 1px;
+    }
+    .slide-zoom {
+      height: 100%;
+    }
+
+    .bigImage {
+      height: 16em;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    ion-img img {
+      height: 56.25vw;
+      width: 100vw;
+      object-fit: cover;
+    }
+    .fab-favorite {
+      position: absolute;
+      background-color: transparent;
+      top: 0vw;
+      right: 3vw;
+      font-size: 8vw;
+      color: white;
+      z-index: 50;
+    }
+    .fab-top-left {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      position: absolute;
+      background-color: #a9a9a9;
+      opacity: 0.7;
+      top: 1vw;
+      left: 1.5vw;
+      font-size: 4.5vw;;
+      padding: 0.1vw 1vw;
+      text-align: center;
+      color: white;
+      z-index: 50;
+      max-width: 40%;
+
+    }
+    .fab-bot-left {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      position: absolute;
+      background-color: #a9a9a9;
+      opacity: 0.7;
+      bottom: 1vw;
+      left: 1.5vw;
+      font-size: 4.5vw;;
+      padding: 0.1vw 1vw;
+      text-align: center;
+      color: white;
+      z-index: 50;
+      max-width: 40%;
+
+    }
+    .fab-bot-text {
+      opacity: 1;
+      color: white;
+      z-index: 50;
+    }
+    .fab-bot-middle {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      position: absolute;
+      bottom: 1vw;
+      left: 50%;
+      transform: translate(-50%, 0);
+      font-size: 5.5vw;
+      padding: 0 1vw;
+      font-weight: bold;
+      color: #fff;
+      background-color: #a9a9a9;
+      text-align: center;
+      max-width: 60%;
+      z-index: 150;
+
+    }
+    .certificate2Lines {
+      height: 2.5em;
+      text-align: center;
+    }
+    .fab-bot-right {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      position: absolute;
+      background-color: #a9a9a9;
+      opacity: 0.7;
+      bottom: 0.2rem;
+      right: 0.3rem;
+      float: right;
+      font-size: 2rem;
+      padding: 0 0 0.2rem 0.2rem;
+      text-align: center;
+      color: white;
+      z-index: 50;
+      max-width: 70%;
+    }
+    .roundButton {
+      // width: 12vw;
+      // height: 12vw;
+      // border-radius: 12vw;
+      width: 10em;
+      height: 10em;
+      border-radius: 10em;
+      border: 0;
+      overflow: hidden;
+      color: white;
+    }
+    .roundButton:hover {
+      width: 12em;
+      height: 12em;
+      border-radius: 12em;
+      box-shadow: 0 0 3em gray;
+    }
+    .flexWrap {
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+    ion-avatar img {
+      max-width: 3.2em;
+      max-height: 3.2em;
+      width: 3.2em;
+      height: 3.2em;
+      border-radius: 1.6em;
+    }
+    ion-card {
+      position: relative;
+      text-align: center;
+    }
+    .button-icon-only ion-icon {
+      font-size: 2.6em;
+    }
+    ion-avatar img {
+      max-width: 4.6rem;
+      max-height: 4.6rem;
+      border-radius: 2.3rem;
+    }
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+    }
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: #fff;
+    }
+    .certficateClass {
+      line-height: 1.5em;
+      height: 3em; /* height is 2x line-height, so two lines will display */
+      overflow: hidden;
+    }
+    .ellipsis {
+      overflow: hidden;
+      height: 9.5vw;
+      line-height: 5vw;
+      white-space: normal; /* Wrap lines of text */
+      overflow: hidden; /* Hide text that goes beyond the boundaries of the div */
+      text-overflow: ellipsis; /* Ellipses (cross-browser) */
+      -o-text-overflow: ellipsis;
+    }
+  // }
+  .buttonInMenu {
+    display: table-cell;
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    font-size: 1.4em;
+  }
+
+    .adjustRowWidth{
+      margin-left: 1rem;
+    }
+
+
+// @media only screen and (max-width: 422px) and (min-width: 390px){
+//   .adjustRowWidth{
+//     margin-left: 1rem;
+//   }
+// }
